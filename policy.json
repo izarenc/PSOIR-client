@@ -1,0 +1,15 @@
+{
+    "expiration": {
+        "day": 1
+    },
+    "conditions": [
+        ["starts-with", "$key", "photos/"], {
+            "bucket": "perenc-lab4"
+        }, {
+            "acl": "private"
+        }, {
+            "success_action_redirect": "52.24.156.118:8080/success/"
+        },
+        ["content-length-range", 0, 10485760000000]
+    ]
+}

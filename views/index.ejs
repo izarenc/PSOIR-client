@@ -1,0 +1,47 @@
+<html>
+
+    <body>
+        <% if (message==1){%>
+            <dialog open>
+                <center>
+                    <h3>
+                        Sukces!
+                    </h3>
+                </center>
+                <center>
+                    <p>
+                        Plik został dodany do
+                        <%=bucket%>!
+                    </p>
+                </center>
+                <center>
+                    <button onclick="52.24.156.118:8080/'">
+                        OK
+                    </button>
+                </center>
+            </dialog>
+        <%}%>
+        <div>
+            <div>
+                <div>
+                    <form action="https://<%=bucket%>.s3.amazonaws.com/" method="POST" enctype="multipart/form-data">
+                        <% if (message==0){%>
+                            <% fields.forEach(function(elem){ %>
+                                <input type="hidden" name="<%= elem.name  %>" value="<%=elem.value %>"/>
+                            <%}); %>
+                        <%}%>
+                        <input type="file" accept=".jpg,.png" name="file">
+                        <p>
+                            <b>Plik zostanie wysłany do kontenera
+                                <%=bucket%></b>
+                        </p>
+                        <input type="submit" value="Wyślij"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <a href="52.24.156.118:8080/list">Pokaż zawartość
+            <%=bucket%></a>
+    </body>
+
+</html>
